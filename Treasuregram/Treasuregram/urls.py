@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #localhost:8000 will go here
     url(r'^', 
-        include('main_app.urls')),
+        include('main_app.urls')), # To send to the URLs dispatcher in main_app
     ]
