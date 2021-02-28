@@ -63,33 +63,11 @@ Algunas sentencias de python para operar con la BD
 
     python manage.py createsuperuser
 
+Tambien para administrar el Model creado desde la interfaz de administracion se debe registrar en admin.py el modelo
+
+    from .models import Treasure # Importando el modelo
+    admin.site.register(Treasure) # Luego registrandolo
+
+
 user: zondo / pass:1234
 
-treasures = [
-    Treasure('Gold Nugget', 500.00, 'gold', "Curly's Creek, NM","https://cdn.picpng.com/gold/icon-gold-40490.png"),
-    Treasure("Fool's Gold", 0, 'pyrite', "Fool's Falls, CO","https://cdn.picpng.com/gold/icon-gold-40490.png"),
-    Treasure('Coffe Can', 20.00, 'tin', 'Acme, CA',"https://cdn.picpng.com/gold/icon-gold-40490.png")
-]
-
-
-Treasure(
-        name="Coffe Can",
-        value=20.00, 
-        material='Tin',
-        location='Acme, CA',
-        img_url="https://industrytoday.com/wp-content/uploads/2019/11/tin-can-packaging.jpg"
-        )
-
-
-
-
-        https://assets.newatlas.com/dims4/default/5110f3a/2147483647/strip/true/crop/1617x1078+0+1/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Ffools-gold-battery-5.jpg
-
-
-        class Treasure:
-    def __init__(self, name, value, material, location, img_url):
-        self.name = name
-        self.value = value
-        self.material = material
-        self.location = location
-        self.img_url = img_url
