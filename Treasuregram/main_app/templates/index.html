@@ -15,49 +15,25 @@
         </nav>
         
         <main class="container container--mw700" role="main">
-        {% for treasure in treasures %}
-            
-            <div class="treasure panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ treasure.name }}</h3>
+            <div class="row">
+            {% for treasure in treasures %}
+                <div class="col-md-4">
+                    <a href="/{{treasure.id}}/">
+                        <div class="treasure panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ treasure.name }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <img src="{{ treasure.img_url }}" width="170">
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="panel-body">
-                    <div class="treasure-photo">
-                        <img src="{{ treasure.img_url }}" height="200">
-                    </div>
-                    <table class="treasure-table">
-                        <tr>
-                            <th>
-                                <img src="{% static 'images/material-icon.png' %}" alt="Material Icon">
-                                Material:
-                            </th>
-                            <td>{{ treasure.material }}</td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <img src="{% static 'images/value-icon.png' %}" alt="Value Icon">
-                                Value:
-                            </th>
-                            <td>
-                                {% if treasure.value > 0 %}
-                                    ${{ treasure.value }}
-                                {% else %}
-                                    Unknown
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <img src="{% static 'images/location-icon.png' %}" alt="Location icon">
-                                Location:
-                            </th>
-                            <td>{{ treasure.location }}</td>
-                        </tr>
-                    </table>
-                </div>
+                {% if forloop.counter|divisibleby:3 %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
             </div>
-
-        {% endfor %}
         </main>
 
         <footer class="footer container text-center" role="contentinfo">
