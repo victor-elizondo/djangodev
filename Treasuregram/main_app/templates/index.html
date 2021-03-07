@@ -1,45 +1,36 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css"
-            href=" {% static 'bootstrap.min.css' %}" />
-        <link rel="stylesheet" type="text/css"
-            href=" {% static 'style.css' %}" />
-        <title> TreasureGram </title>
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top text-center">
-            <a href="/">
-            <img src="{% static 'images/logo.png' %}" height="90" alt="TreasureGram"> </a>
-        </nav>
-        
-        <main class="container container--mw700" role="main">
-            <div class="row">
-            {% for treasure in treasures %}
-                <div class="col-md-4">
-                    <a href="/{{treasure.id}}/">
-                        <div class="treasure panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{{ treasure.name }}</h3>
-                            </div>
-                            <div class="panel-body">
-                                <img src="{{ treasure.img_url }}" width="170">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-                    </div><div class="row">
-                {% endif %}
-            {% endfor %}
-            </div>
-        </main>
 
-        <footer class="footer container text-center" role="contentinfo">
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-            © TreasureGram 2016
-            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
-        </footer>
-    </body>
-</html>
+{% block content %}
+    <div class="row">
+    {% for treasure in treasures %}
+        <div class="col-md-4">
+            <a href="/{{treasure.id}}/">
+                <div class="treasure panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ treasure.name }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <img src="{{ treasure.img_url }}" width="170">
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+            </div><div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+    <div class="treasure panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"> Add Treasure</h3>
+        </div>
+        <div class="panel-body">
+            <form action="post_url/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+{% endblock %}

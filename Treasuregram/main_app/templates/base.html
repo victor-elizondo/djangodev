@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css"
+            href=" {% static 'bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css"
+            href=" {% static 'style.css' %}" />
+        <title> TreasureGram </title>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top text-center">
+            <a href="/">
+            <img src="{% static 'images/logo.png' %}" height="90" alt="TreasureGram"> </a>
+        </nav>
+        
+        <main class="container container--mw700" role="main">
+          {% block content %}
+          {% endblock %}
+        </main>
+
+        <footer class="footer container text-center" role="contentinfo">
+            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+            © TreasureGram 2016
+            <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+        </footer>
+    </body>
+</html>
