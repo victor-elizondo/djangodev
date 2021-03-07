@@ -70,7 +70,7 @@ Tambien para administrar el Model creado desde la interfaz de administracion se 
 
 
 user: zondo / pass:1234
-
+user: indiana / eiSH20Pa
 ## Django Template filters
 Filtros para los operadores de Django que me ha tocado usar dentro del HTML, ejemplo para las iteraciones divisibles por 3:
 

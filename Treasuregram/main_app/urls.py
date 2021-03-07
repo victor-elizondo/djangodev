@@ -7,6 +7,10 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^([0-9]+)/$', views.detail, name='detail'),
     url(r'post_url/$', views.post_treasure, name='post_treasure'),
+    url(r'^user/(\w+)/$', views.profile, name='profile'),
+    url(r'ˆlogin/$', views.login_view, name='login'),  
+    url(r'ˆlogout/$', views.logout_view, name='logout'),
+    url(r'like_treasure/$', views.like_treasure, name='like_treasure'),
 ]
 
 

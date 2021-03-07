@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="treasure panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"> Login </h3>
+    </div>
+    <div class="panel-body">
+        <form action="." method="post">
+            {% csrf_token %}
+            <div class="field-wrapper">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -5,10 +5,15 @@
     <div class="treasure panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{ treasure.name }}</h3>
+                <a class="panel-username"
+                    href="/user/{{treasure.user.username}}/">
+                    by: {{ treasure.user.username }}
+                </a>
         </div>
         <div class="panel-body">
             <div class="treasure-photo">
-                <img src="{{ treasure.image.url }}" width="200">
+                <img src="{{ treasure.image.url }}" width="180">
+                
             </div>
             <table class="treasure-table">
                 <tr>
@@ -39,6 +44,11 @@
                     <td>{{ treasure.location }}</td>
                 </tr>
             </table>
+            <button id="likes" data-id="{{treasure.id}}"
+                class="btn btn-mini btn-danger glyphicon glyphicon-heart"
+                type="button">
+                {% if treasure.likes > 0 %} {{ treasure.likes }} {% endif %}
+            </button>
         </div>
     </div>
 {% endblock %}
